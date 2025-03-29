@@ -1,0 +1,103 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Full Stack",
+            "type": "node",
+            "request": "launch",
+            "runtimeExecutable": "npm",
+            "runtimeArgs": ["run", "dev"],
+            "cwd": "${workspaceFolder}/frontend",
+            "serverReadyAction": {
+                "pattern": "started server on .+, url: (https?://.+)",
+                "uriFormat": "%s",
+                "action": "debugWithChrome"
+            },
+            "preLaunchTask": "start-backend"
+        },
+
+        {
+            "name": "Python: Flask",
+            "type": "debugpy",
+            "request": "launch",
+            "module": "flask",
+            "env": {
+                "FLASK_ENV": "development",
+                "FLASK_DEBUG": "1"
+            },
+            "args": [
+                "run",
+                "--no-debugger",
+                "--no-reload"
+            ],
+            "python": "${workspaceFolder}/backend/.venv/bin/python",
+            "cwd": "${workspaceFolder}/backend"
+        },
+        // {
+        //     "name": "Backend: Flask",
+        //     "type": "debugpy",
+        //     "request": "launch",
+        //     "module": "flask",
+        //     "python": "${workspaceFolder}/backend/.venv/bin/python",
+        //     "args": [
+        //         "run",
+        //         "--reload",
+        //         "--host",
+        //         "0.0.0.0",
+        //         "--port",
+        //         "5000"
+        //     ],
+        //     "env": {
+        //         "FLASK_APP": "app.py",
+        //         "FLASK_DEBUG": "1",
+        //         "PYTHONPATH": "${workspaceFolder}/backend"
+        //     },
+        //     "cwd": "${workspaceFolder}/backend",
+        //     "console": "integratedTerminal",
+        //     "justMyCode": false,
+        // },
+        // {
+        //     "name": "Flask",
+        //     "type": "debugpy",
+        //     "request": "launch",
+        //     "stopOnEntry": false,
+        //     "python": "${workspaceFolder}/backend/.venv/bin/python",
+        //     "program": "${workspaceRoot}/backend/app.py",
+        //     "env": {
+        //         "FLASK_APP": "${workspaceRoot}/app.py"
+        //     },
+        //     "args": [
+        //         "run"
+        //     ],
+        //     "envFile": "${workspaceFolder}/.env",
+        // },
+        {
+            "name": "Next.js: debug server-side",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "source ~/.nvm/nvm.sh && nvm use 20 && npm run dev",
+            "cwd": "${workspaceFolder}/frontend"
+        },
+        {
+            "name": "Next.js: debug client-side",
+            "type": "chrome",
+            "request": "launch",
+            "url": "http://localhost:3000",
+            "webRoot": "${workspaceFolder}/frontend"
+        },
+        {
+            "name": "Next.js: debug full stack",
+            "type": "node-terminal",
+            "request": "launch",
+            "command": "source ~/.nvm/nvm.sh && nvm use 20 && npm run dev",
+            "cwd": "${workspaceFolder}/frontend",
+            "serverReadyAction": {
+                "pattern": "- Local:.+(https?://.+)",
+                "uriFormat": "%s",
+                "action": "debugWithChrome",
+                "killOnServerStop": true,
+                "webRoot": "${workspaceFolder}/frontend"
+            }
+        }
+    ],
+} 

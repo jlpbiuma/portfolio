@@ -1,0 +1,43 @@
+{
+    "version": "2.0.0",
+    "tasks": [
+        {
+            "label": "start-backend",
+            "type": "process",
+            "command": "${workspaceFolder}/backend/.venv/bin/python",
+            "args": [
+                "-m",
+                "flask",
+                "run",
+                "--no-debugger",
+                "--host",
+                "0.0.0.0",
+                "--port",
+                "5000"
+            ],
+            "options": {
+                "cwd": "${workspaceFolder}/backend",
+                "env": {
+                    "FLASK_APP": "app.py",
+                    "FLASK_DEBUG": "1",
+                    "PYTHONPATH": "${workspaceFolder}/backend",
+                    "VIRTUAL_ENV": "${workspaceFolder}/backend/.venv"
+                }
+            },
+            "isBackground": true,
+            "problemMatcher": {
+                "pattern": {
+                    "regexp": "^.*$",
+                    "file": 1,
+                    "location": 2,
+                    "message": 3
+                },
+                "background": {
+                    "activeOnStart": true,
+                    "beginsPattern": ".*Serving Flask app.*",
+                    "endsPattern": ".*Debugger PIN.*"
+                }
+            }
+        }
+    ]
+} 
