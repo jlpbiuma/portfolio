@@ -1,7 +1,7 @@
 [submodule "portfolio-frontend"]
-    path = portfolio-frontend
+    path = frontend
     url = https://github.com/jlpbiuma/portfolio-frontend
 
 [submodule "portfolio-backend"]
-    path = portfolio-backend
+    path = backend
     url = https://github.com/jlpbiuma/portfolio-backend
